@@ -1,0 +1,50 @@
+// *************************************
+//
+//  Mixins
+//
+// *************************************
+$url-img: '^/assets/img/'!default
+
+@function image-url($path, $only-path: false)
+  @if $only-path
+    @return unquote("url('#{$path}')")
+  @else
+    @return unquote("url('#{$url-img}#{$path}')")
+
+
+=fs($fz: null, $c: null, $lh: null, $fw: null, $fm: null)
+  color: $c
+  font-weight: $fw
+  font-size: $fz
+  font-family: $fm
+  line-height: $lh
+  @content
+
+=imgBg($w: null, $h: null, $img-url: null)
+  width: $w
+  height: $h
+  background: image-url('#{$img-url}') no-repeat
+
+=size($w: null, $h: null)
+  width: $w
+  height: $h
+  @content
+
+=pos($p: null, $t: null, $r: null, $b: null, $l: null)
+  position: $p
+  top: $t
+  right: $r
+  bottom: $b
+  left: $l
+  @content
+
+// -------------------------------------
+//   Rule RWD mixin
+// -------------------------------------
+
+$breakpoints: ('tablet': (min-width: 680px), 'desktop1024': (min-width: 1024px) ,'desktop': (min-width: 1280px))
+
+=respond-to($breakpoint)
+  @if map-has-key($breakpoints, $breakpoint)
+    @media #{inspect(map-get($breakpoints, $breakpoint))}
+      @content

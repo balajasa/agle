@@ -1,0 +1,329 @@
+<div class="wrapper">
+  <!-- Banner -->
+  <section class="sec sec--banner" #bannerEl>
+    <header class="header">
+      <div class="header-flex">
+        <button class="btn-menu" (click)="toggleMenu()"></button>
+        <div class="menu-text">Menu</div>
+      </div>
+      <div class="header-flex">
+        <div class="logo" #logoIcon>
+          <div class="logo-icon"></div>
+          <div class="logo-info">
+            <div class="logo-company">艾爾加科技有限公司</div>
+            <div class="logo-companyEN">ELGA TECHNOLOGY CO., LTD.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <!-- is-active -->
+      <div class="menu" [class.is-active]="isMenuOpened">
+        <svg (click)="closeMenu()" class="btn-close" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+          <defs></defs>
+          <g transform="translate(-4463 -1980)">
+            <rect style="fill:none;" width="44" height="44" transform="translate(4463 1980)" />
+            <g transform="translate(-132.601 -3.665)">
+              <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-width:2px;" y1="1.323" x2="34.032"
+                transform="translate(4606.536 1993.665) rotate(45)" />
+              <line style="fill:none;stroke:#fff;stroke-linecap:round;stroke-width:2px;" x2="34.032" y2="1.323"
+                transform="translate(4630.601 1994.6) rotate(135)" />
+            </g>
+          </g>
+        </svg>
+        <ul class="menu-list">
+          <li class="menu-item" (click)="move('sec--banner')">首頁</li>
+          <li class="menu-item" (click)="move('sec--about')">關於艾爾加</li>
+          <li class="menu-item" (click)="move('sec--service')">服務項目</li>
+          <li class="menu-item" (click)="move('sec--support')">技術支援</li>
+          <li class="menu-item" (click)="move('sec--contact')">聯絡我們</li>
+        </ul>
+      </div>
+    </header>
+    <div class="content content--banner">
+      <div class="clipPapper" #clipPaper>
+        <div class="cloud-1"></div>
+        <div class="cloud-2"></div>
+        <div class="clipPapper-content" #clipPaperContent>
+          <div class="clipPapper-text">不只是幻想</div>
+          <div class="clipPapper-text">而是把
+            <span class="clipPapper-bold">夢</span>
+            變成</div>
+          <div class="clipPapper-text">真實存在!</div>
+        </div>
+        <button class="btn btn-banner btn--default is-desktop" (click)="move('sec--service')">
+          我們的服務
+          <span class="arrow">
+            <span class="arraow-icon"></span>
+            <span class="arraow-icon"></span>
+            <span class="arraow-icon"></span>
+            <span class="arraow-icon"></span>
+          </span>
+        </button>
+      </div>
+      <button class="btn btn-banner btn--default is-mobile" (click)="move('sec--service')">
+        我們的服務
+        <span class="arrow">
+          <span class="arraow-icon"></span>
+          <span class="arraow-icon"></span>
+          <span class="arraow-icon"></span>
+          <span class="arraow-icon"></span>
+        </span>
+      </button>
+      <div class="cloud-3"></div>
+    </div>
+    <div class="plane-purpleAni" #planePurpleEl></div>
+    <div class="plane-yellowAni" #planeYellowEl></div>
+    <div class="plane-greenAni" #planeGreenEl></div>
+  </section>
+  <div class="triangle">
+    <div class="triangle-icon"></div>
+  </div>
+
+  <!-- About -->
+  <section class="sec sec--about">
+    <div class="plane-purpleAni" #AplanePurpleEl></div>
+    <div class="plane-yellowAni" #AplaneYellowEl></div>
+    <div class="content content--about">
+      <div class="about-title" #aboutTitle></div>
+
+      <div class="about about--mobile" #aboutMobile>
+        <div class="about-item item--1">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">火力強大的開發team</div>
+          </div>
+        </div>
+        <div class="about-item item--2">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">專業精準的專管team</div>
+          </div>
+        </div>
+        <div class="about-item item--3">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">絕對美感的視覺team</div>
+          </div>
+        </div>
+        <div class="about-item item--4">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">鬼才謀略的行銷team</div>
+          </div>
+        </div>
+        <div class="about-item item--5">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">神速處理的客服team</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about about--desktop" #aboutDesktop>
+        <div class="about-item item--1">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">火力強大的開發team</div>
+          </div>
+        </div>
+        <div class="about-item item--2">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">專業精準的專管team</div>
+          </div>
+        </div>
+        <div class="about-item item--3">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">絕對美感的視覺team</div>
+          </div>
+        </div>
+        <div class="about-item item--4">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">鬼才謀略的行銷team</div>
+          </div>
+        </div>
+        <div class="about-item item--5">
+          <div class="about-box">
+            <div class="about-img"></div>
+            <div class="about-text">神速處理的客服team</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service -->
+  <section class="sec sec--service">
+    <div class="plane-yellowAni" #SplaneYellowEl></div>
+    <div class="plane-greenAni" #SplaneGreenEl></div>
+    <div class="content content--service">
+      <div class="service-header">
+        <div class="service-title" #serviceTitleEl>
+          <div class="service-textItem">Service Items</div>
+          <div class="service-text">服務項目</div>
+        </div>
+        <div class="service-desc desc--mobile" #serviceDescMobileEl>
+          <div class="desc-text">突破極限、創新卓越，只為您帶來200%完美</div>
+          <div class="desc-text">的產品，讓您腦內的夢不再是夢，</div>
+          <div class="desc-text">而是確切而真實的存在!</div>
+        </div>
+        <div class="service-desc desc--desktop" #serviceDescDesktopEl>
+          <div class="desc-text">突破極限、創新卓越，只為您帶來200%完美的產品，</div>
+          <div class="desc-text">讓您腦內的夢不再是夢，而是確切而真實的存在!</div>
+        </div>
+      </div>
+
+      <div class="service"  #serviceEl>
+        <div class="service-item" *ngFor="let item of serviceConfig; let i =index">
+          <div class="service-order" [ngClass]="'order--' + ( i + 1 ) " (click)="openModal(item.title)">
+            <span class="arrow arrow--service">
+              <span class="arraow-icon"></span>
+              <span class="arraow-icon"></span>
+              <span class="arraow-icon"></span>
+              <span class="arraow-icon"></span>
+            </span>
+            <div class="service-order-text">{{ item.title }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support -->
+  <section class="sec sec--support">
+    <div class="plane-yellowAni" #PplaneYellowEl></div>
+    <div class="content content--support">
+      <div class="support" #supportEl>
+        <div class="support-box">
+          <div class="support-item item--green is-zoomIn">前端</div>
+          <div class="support-item item--green is-zoomIn">Mobile</div>
+          <div class="support-item item--white is-zoomIn">大數據</div>
+          <div class="support-item item--green is-zoomIn">後端</div>
+          <div class="support-item item--white is-zoomIn">VR</div>
+          <div class="support-item item--green is-zoomIn">Database</div>
+          <div class="support-item item--white is-zoomIn">視覺</div>
+        </div>
+      </div>
+
+      <div class="tech" #techEl>
+        <div class="tech-title">
+          <div class="tech-text">
+            <span class="plane-green"></span>技術支援</div>
+          <div class="tech-text text--green">Technical Support</div>
+        </div>
+
+        <div class="carousel">
+          <div class="carousel-header">
+            <button class="btn-carousel carousel--prev" (click)="prevService()"></button>
+            <div class="carousel-title">{{techList[currentTechIndex].name}}</div>
+            <button class="btn-carousel carousel--next" (click)="nextService()"></button>
+          </div>
+          <div class="carousel-content">
+            <ul class="carousel-list">
+              <li class="carousel-item" *ngFor="let icon of techList[currentTechIndex].list"
+                [class.is-backend]="techList[currentTechIndex].name === '後端'"
+                [class.is-database]="techList[currentTechIndex].name === '大數據' || techList[currentTechIndex].name === '視覺'"
+                >
+                <div class="carousel-tech" [ngClass]="'tech--' + icon"></div>
+                <div class="carousel-name">{{removeUnderline(icon)}}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="sec sec--contact">
+    <div class="content content--contact" #contactEl>
+      <div class="contact-bg"></div>
+
+      <div class="contact-formWrap">
+        <div class="contact-title">
+          <div class="contact-text">聯絡我們</div>
+          <div class="contact-textEN">CONTACTS</div>
+        </div>
+        <div class="contact-desc">
+          <div class="desc-text">感謝您選擇了我們，請在下方留下您的聯絡資訊與需求，</div>
+          <div class="desc-text">我們將在上班時間儘速與您聯繫！</div>
+        </div>
+
+        <div class="contact-form">
+          <div class="success-info" *ngIf="isSuccess">
+            謝謝您的選擇，我們將儘速回覆您！
+          </div>
+          <div class="form-box">
+            <form class="form-content" (submit)="$event.preventDefault();submit()">
+              <div class="form-line">
+                <div class="form-group">
+                  <label class="form-label">稱謂</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">聯繫電話</label>
+                  <input
+                    type="tel"
+                    class="form-input"
+                    required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input
+                  #email
+                  type="email"
+                  class="form-input"
+                  required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">內容</label>
+                <textarea
+                  class="form-textarea"
+                  required></textarea>
+              </div>
+              <button type="submit" class="btn btn-submit btn--default">提交</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <div class="logo">
+          <div class="logo-icon"></div>
+          <div class="logo-info">
+            <div class="logo-company">艾爾加科技有限公司</div>
+            <div class="logo-companyEN">ELGA TECHNOLOGY CO., LTD.</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-address">
+        <div class="address-icon"></div>
+        <div class="address-info">
+          <div class="address-company">
+            <div class="address-text">臺中市西屯區市政北二路238號34樓之1
+              <span class="address-tel">04-22513659</span>
+            </div>
+          </div>
+          <div class="address-companyEN">
+            34F.-1, NO. 238, SHIZHENG N. 2ND RD., XITUN DIST., TAICHUNG CITY 407607, TAIWAN
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button class="btn-top" *ngIf="isShowGoTop" (click)="moveTop()"></button>
+</div>

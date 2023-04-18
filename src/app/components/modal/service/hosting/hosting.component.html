@@ -1,0 +1,37 @@
+<div class="popup-hosting">
+  <div class="hosting-wrap">
+    <div class="content-title">
+      <div class="title-img"></div>
+    </div>
+    <div class="container hosting-content">
+      <div class="hosting-box">
+        <div class="hosting-frame">
+          <div class="img-outside">
+            <div class="hosting-img img1" [class.is-slide]="!isSlide"></div>
+            <div class="hosting-img img2" [class.is-slide]="isSlide"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="hosting-describe">
+        <div class="describe-title">視覺美術設計</div>
+        <div class="describe-text is-web">
+          <p class="mb-2">一個好的產品，第一時間吸引客群目光的絕對是視覺設計！</p>
+          <p class="mt-2">吸睛的程度多寡，決定了客戶還願意花多少時間去了解你的產品！</p>
+          <p>命中核心且精美的設計，才能將您的產品襯托出閃耀動人的價值。從企業GIS、2D/3D設計、動態設計、UI/UX設計、商業攝影、影片剪輯、後製…等全套全方面的服務，都是為了成就您的而準備！</p>
+          <p>我們做的是設計不僅是設計，更是您夢想的核心價值。</p>
+        </div>
+        <button class="btn-contactUs is-web" (click)="contact()">聯絡我們</button>
+      </div>
+
+      <div class="describe-text is-mobile">
+        <p class="mb-2">一個好的產品，第一時間吸引客群目光的絕對是視覺設計！</p>
+        <p class="mt-2">吸睛的程度多寡，決定了客戶還願意花多少時間去了解你的產品！</p>
+        <p>命中核心且精美的設計，才能將您的產品襯托出閃耀動人的價值。從企業GIS、2D/3D設計、動態設計、UI/UX設計、商業攝影、影片剪輯、後製…等全套全方面的服務，都是為了成就您的而準備！</p>
+        <p>我們做的是設計不僅是設計，更是您夢想的核心價值。</p>
+      </div>
+    </div>
+    <button class="btn-contactUs is-mobile" (click)="contact()">聯絡我們</button>
+  </div>
+
+</div>

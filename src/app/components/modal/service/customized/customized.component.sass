@@ -1,0 +1,214 @@
+@import 'mixins'
+
+.popup-customized
+  +size($w: 100%, $h: 100%)
+.customized-wrap
+  margin: 0 auto
+  width: 80%
+  +respond-to('desktop')
+    +pos($p: relative)
+    display: flex
+    padding: 1% 0 0 1.5%
+    width: 88%
+.content-title
+  margin-top: 80px
+  +respond-to('desktop')
+    flex-shrink: 0
+    margin-top: 0
+    width: 276px
+.title-img
+  +imgBg($w: 182px, $h: 197px, $img-url: 'service/items-1.png')
+  margin: 0 auto
+  background-position: center
+  background-size: contain
+  +respond-to('desktop')
+    +imgBg($h: 276px, $img-url: 'service/items-1.png')
+    +pos($p: unset)
+    margin-top: -7%
+    width: 100%
+    background-size: contain
+
+// content
+.customized-content
+  display: flex
+  align-items: center
+  flex-direction: column-reverse
+  +respond-to('tablet')
+    flex-direction: column-reverse
+  +respond-to('desktop')
+    align-items: start
+    flex-direction: row
+    flex-grow: 1
+    justify-content: center
+
+// frame-img
+.customized-box
+  +size($w: 100%)
+  max-width: 758px
+  +respond-to('desktop')
+    flex-grow: 1
+    min-width: 480px
+    width: auto
+.customized-frame
+  +imgBg($img-url: 'photoframe.png')
+  +pos($p: relative)
+  overflow: hidden
+  margin-top: 20px
+  padding-bottom: 92%
+  background-size: cover
+  +respond-to('desktop')
+    +imgBg($w: 100%, $img-url: 'photoframe.png')
+    margin-top: 58px
+    background-size: cover
+.img-outside
+  +pos($p: absolute, $t: 8%, $l: 7.6%)
+  +size($w: calc( 100% - 18% ), $h: calc( 100% - 22% ))
+  overflow: hidden
+  +respond-to('desktop')
+    +pos($p: absolute, $t: 8%, $l: 7.8%)
+    +size($w: calc( 100% - 18% ), $h: calc( 100% - 22% ))
+    overflow: hidden
+
+.customized-img
+  +pos($p: absolute, $t: 0, $l: 0)
+  +size($w: 100%, $h: 100%)
+  background-position: center center
+  background-size: cover
+  transition: 1s
+  opacity: 0
+  &.is-slide
+    opacity: 1
+  &.img1
+    +imgBg($img-url: 'service/1-1.jpg')
+    background-size: contain
+  &.img2
+    +imgBg($img-url: 'service/1-2.jpg')
+    background-size: contain
+  +respond-to('desktop')
+    +size($w: 100%, $h: 100%)
+    +pos($p: absolute, $t: 0, $l: 0)
+    padding-bottom: 0
+
+// fade-in
+@keyframes fadein
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes fadeout
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+
+// slide-in
+@keyframes slidein
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(100%)
+
+@keyframes slideout
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(-100%)
+
+
+
+// mask
+.img-mask
+  &.is-mobile
+    display: block
+    width: 100%
+    +respond-to('desktop')
+      display: none
+  &.is-web
+    display: none
+    +respond-to('desktop')
+      +size($w: 37%, $h: 100%)
+      +pos($p: absolute, $t: 0, $l: 0)
+      display: flex
+      padding: 4%
+      background: linear-gradient(#FFFFFF00, #DEFFF4)
+.mask-list
+  +fs($fz: 14px,$c: #000000)
+  margin: 16px 26px
+  +respond-to('desktop')
+    +pos($p:absolute, $b: 3%)
+    +fs($fz: 15px)
+    margin: auto
+  +respond-to('desktop1024')
+    +fs($fz: 16px)
+.list-item
+  +pos($p: relative)
+  margin-bottom: 16px
+  padding-left: 16px
+  +respond-to('desktop')
+    margin-bottom: 14px
+  &::before
+    +size($w: 6px, $h: 6px)
+    +pos($p: absolute, $t: 6px, $l: 0)
+    display: inline-block
+    border-radius: 50%
+    background-color: #006CBC
+    content: ""
+
+// describe
+.customized-describe
+  +respond-to('desktop')
+    margin: 8.6% 9% 0 4.2%
+    max-width: 470px
+.describe-title
+  +fs($fz: 20px, $fw: bold, $c: #292929)
+  margin: 8px
+  text-align: center
+  +respond-to('desktop')
+    +fs($fz: 32px)
+    margin: auto
+    text-align: left
+  +respond-to('desktop1024')
+    +fs($fz: 32px)
+.describe-text
+  +fs($fz: 14px, $c: #000000)
+  &.is-mobile
+    order: -1
+    line-height: 22px
+    +respond-to('desktop')
+      display: none
+    +respond-to('desktop1024')
+      +fs($fz: 16px)
+  &.is-web
+    display: none
+    +respond-to('desktop')
+      +fs($fz: 16px)
+      display: block
+      margin-top: 40px
+      line-height: 22px
+.btn-contactUs
+  border-radius: 25px
+  background-color: #0088EB
+  transition: background-color .3s ease, box-shadow .3s ease
+  &:hover
+    +respond-to('desktop')
+      background-color: #0063EB
+      box-shadow: 0 3px 6px #7D7E7E
+  &.is-mobile
+    +fs($fz: 16px,$c: #fff)
+    +size($w: 136px, $h:40px)
+    display: block
+    margin-top: 30px
+    +respond-to('desktop')
+      display: none
+    +respond-to('desktop1024')
+      +fs($fz: 18px)
+      +size($w: 170px, $h: 50px)
+  &.is-web
+    display: none
+    +respond-to('desktop')
+      +fs($fz: 18px,$c: #fff)
+      +size($w: 170px, $h: 50px)
+      display: block
+      margin-top: 40px

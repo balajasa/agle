@@ -1,0 +1,21 @@
+
+$techIcon: 'Javascript', 'Css3', 'Html5', 'React', 'Angular', 'Vue', 'MySQL', 'Redis', 'SCYLLA', 'Oracle', 'Mssql', 'Influxdb', 'PHP', 'Go', 'Python', 'Docker', 'K8s', 'Lua', 'Git', 'Nsq', 'Helm', 'Istio', 'Devops', 'Unity', '3dsMAX', 'Maya', 'Unreal', 'Vizard', 'Substance_Painter', 'Google_Analytics', 'Tableau', 'SPSS', 'SAS', 'R', 'Apache_Hadoop', 'ELK', 'Spark', 'Android', 'IOS', 'Photoshop', 'Illustrator', 'After_Effects', 'Premiere', 'XD', 'Axure', 'Spine'
+
+.carousel-name
+  +fs($fz: 12px, $fw: bold)
+  +respond-to('desktop')
+    +fs($fz: 18px)
+
+.carousel-tech
+  +size($w: 50px, $h: 30px)
+  display: inline-block
+  margin-bottom: 6px
+  +respond-to('desktop')
+    +size($w: 45px, $h: 50px)
+
+@each $icon in $techIcon
+  .tech--#{$icon}
+    +imgBg($img-url: 'tech_ico/ico_#{$icon}.png')
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center

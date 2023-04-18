@@ -1,0 +1,192 @@
+@import 'mixins'
+
+.popup
+  +pos($p: fixed, $t: 0, $l: 0,$b:0)
+  +size($w: 100%, $h: 100%)
+  z-index: 10
+  overflow: hidden
+  background-color: #fff
+
+.popup-inner
+  +size($w: 100%, $h: 100%)
+  overflow: auto
+  background-color: #fff
+
+.popup-header
+  +pos($p: fixed)
+  +size($w: 100%, $h: 80px)
+  z-index: 1
+  display: flex
+  align-items: center
+  background-color: rgba(244, 244, 244, 0.9)
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13)
+  +respond-to('desktop')
+    +pos($p: relative)
+    +size($w: 100%, $h: 120px)
+    background-color: #ffffff
+    box-shadow: none
+    margin-top: 90px
+
+.popup-title
+  +imgBg($w: 260px, $h: 46px, $img-url: 'service/serviceitems.png')
+  +pos($p: absolute, $t: 20px)
+  background-size: contain
+  +respond-to('desktop')
+    +imgBg($w: 694px, $h: 121px, $img-url: 'service/serviceitems.png')
+    background-size: contain
+    +pos($p: unset)
+  +respond-to('desktop1024')
+    +imgBg($w: 350px, $h: 61px, $img-url: 'service/serviceitems.png')
+    +pos($p: absolute, $t: 12px)
+    background-size: contain
+
+
+.popup-content
+  z-index: 1
+  +respond-to('desktop')
+    +pos($p: relative)
+    min-height: calc( 100% - 220px - 84px)
+    width: 100%
+.popup-footer
+  +pos($p: relative)
+  display: flex
+  overflow: hidden
+  margin: 13.5% 2% 8%
+  +respond-to('desktop')
+    margin: 0px 116px 106px
+.footer-content
+  +pos($p: relative)
+  +size($w: 100%)
+  z-index: 1
+  display: flex
+  align-items: center
+  justify-content: space-between
+  margin: 0 auto
+
+
+
+// close
+.btn-close
+  +pos($p:absolute ,$r: 20px, $t: 12px)
+  +imgBg($w: 54px, $h: 54px, $img-url: 'icon/ico_close.svg')
+  background-size: contain
+  +respond-to('desktop')
+    +pos($p:absolute ,$r: 154px, $t: 0)
+    +imgBg($w: 105px, $h: 90px, $img-url: 'icon/ico_close_b.svg')
+  +respond-to('desktop1024')
+    +pos($p:absolute ,$r: 20px, $t: 6px)
+    +imgBg($w: 105px, $h: 90px, $img-url: 'icon/ico_close_b.svg')
+    background-size: 75%
+
+// 前後
+.btn-nav
+  +fs($fz: 18px, $c:#196B84)
+  display: inline-flex
+  align-items: center
+  &.nav--prev
+    // +size($w: 90px, $h: 25px)
+    &::before
+      +size($w: 90px, $h: 25px)
+      // +size($w: 100%, $h: 100%)
+      +imgBg($img-url: 'icon/arrow_left.svg')
+      display: block
+      margin-right: 20px
+      background-size: 80%
+      content: ''
+      // padding-bottom: 87%
+  &.nav--next
+    // +size($w: 90px, $h: 25px)
+    &::after
+      +size($w: 90px, $h: 25px)
+      // +size($w: 100%, $h: 100%)
+      +imgBg($img-url: 'icon/arrow_right.svg')
+      display: block
+      margin-left: 20px
+      background-size: 80%
+      content: ''
+      // padding-bottom: 87%
+
+
+// Logo
+.logo
+  display: flex
+.logo-icon
+  +imgBg($w: 64px, $h: 26px, $img-url: 'img_logo.svg')
+  background-position: center
+  background-size: cover
+  background-repeat: no-repeat
+.logo-info
+  +size($w: 110px)
+  white-space: nowrap
+.logo-company
+  +fs($fz: 12px, $c: #97C9C1)
+.logo-companyEN
+  +fs($c: #FFFFFF)
+  transform: scale(.47)
+  transform-origin: left center
+
+
+// Footer Section
+.footer
+  background-color: #454545
+  overflow: hidden
+.footer-container
+  display: flex
+  flex-flow: column nowrap
+  padding: 15px 25px
+  +respond-to('desktop')
+    +size($h: 230px)
+    flex-flow: row nowrap
+    max-width: 1680px
+    align-items: center
+    margin: 0 auto
+.footer-logo
+  +respond-to('desktop')
+    margin-right: auto
+    padding-left: 5%
+  .logo-icon
+    +respond-to('desktop')
+      +size($w: 138px, $h: 52px)
+  .logo-company
+    +fs($c: #ffffff)
+    +respond-to('desktop')
+      +fs($fz: 25px)
+      margin-bottom: 3px
+  .logo-companyEN
+    +fs($c: #ffffff)
+    +respond-to('desktop')
+      transform: scale(0.96)
+.footer-address
+  display: flex
+  align-items: center
+  +respond-to('desktop')
+    margin-left: auto
+.address-info
+  +fs($fz: 12px, $c: #ffffff)
+  transform-origin: 0 center
+  transform: scale(.6)
+  letter-spacing: 0.3px
+  +respond-to('desktop')
+    transform: scale(1)
+    letter-spacing: normal
+.address-text,
+.address-companyEN
+  white-space: nowrap
+.address-tel
+  padding-left: 20px
+.address-text,
+.address-tel
+  +respond-to('desktop')
+    +fs($fz: 16px)
+    margin-bottom: 6px
+.address-companyEN
+  +respond-to('desktop')
+    +fs($fz: 16px)
+.address-icon
+  flex: 0 0 auto
+  +imgBg($w: 30px, $h: 30px, $img-url: 'img_footer_icon.svg')
+  background-size: contain
+  margin-right: 6px
+  +respond-to('desktop')
+    +size($w: 80px, $h: 80px)
+    margin-right: 20px

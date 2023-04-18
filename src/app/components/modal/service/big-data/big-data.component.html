@@ -1,0 +1,52 @@
+<div class="popup-bigData">
+  <div class="bigData-wrap">
+    <div class="content-title">
+      <div class="title-img"></div>
+    </div>
+    <div class="container bigData-content">
+      <div class="bigData-box">
+        <div class="bigData-frame">
+          <div class="img-outside">
+            <div class="bigData-img img1" [class.is-slide]="!isSlide"></div>
+            <div class="bigData-img img2" [class.is-slide]="isSlide"></div>
+            <div class="img-mask is-web">
+              <ul class="mask-list">
+                <li class="list-item">作業流程優化</li>
+                <li class="list-item">提升研發準確性</li>
+                <li class="list-item">分析市場趨勢</li>
+                <li class="list-item">銷售預測模型</li>
+                <li class="list-item">價格最佳化模型</li>
+                <li class="list-item">個人化精準行銷</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="img-mask is-mobile">
+          <ul class="mask-list">
+            <li class="list-item">作業流程優化</li>
+            <li class="list-item">提升研發準確性</li>
+            <li class="list-item">分析市場趨勢</li>
+            <li class="list-item">銷售預測模型</li>
+            <li class="list-item">價格最佳化模型</li>
+            <li class="list-item">個人化精準行銷</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bigData-describe">
+        <div class="describe-title">大數據分析</div>
+        <div class="describe-text is-web">
+          <p>機器的學習與資訊的整合、管理、分析應用，讓艾爾加幫您解決！</p>
+          <p>為您與您的目標準備各式精確大數據解決方案，幫助您透徹地知曉市場/競爭對手/自家公司的各項數據，輔助您可準確預測未來，未雨綢繆做好各時間點上的精確可靠決策，讓公司能夠順利地在成功之路上紮實向前！</p>
+        </div>
+        <button class="btn-contactUs is-web" (click)="contact()">聯絡我們</button>
+      </div>
+
+      <div class="describe-text is-mobile">
+        <p>機器的學習與資訊的整合、管理、分析應用，讓艾爾加幫您解決！</p>
+        <p>為您與您的目標準備各式精確大數據解決方案，幫助您透徹地知曉市場/競爭對手/自家公司的各項數據，輔助您可準確預測未來，未雨綢繆做好各時間點上的精確可靠決策，讓公司能夠順利地在成功之路上紮實向前！</p>
+      </div>
+    </div>
+    <button class="btn-contactUs is-mobile" (click)="contact()">聯絡我們</button>
+  </div>
+
+</div>

@@ -1,0 +1,1110 @@
+@import 'mixins'
+
+// ===== Scaffolder ===== //
+.wrapper
+  +size($w: 100%, $h: 100%)
+// section
+.sec
+  +pos($p: relative)
+  overflow: hidden
+  +respond-to('tablet')
+    +size($h: auto)
+    min-height: 100%
+  &.sec--banner
+    +size($w: 100%, $h: 95%)
+    +imgBg($img-url: 'bg_mobile.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    display: flex
+    flex-flow: column nowrap
+    justify-content: space-between
+    background-position: center
+    opacity: 0
+    transition: opacity .5s ease
+    +respond-to('tablet')
+      +size($h: auto)
+    &.is-play
+      opacity: 1
+    +respond-to('desktop')
+      +imgBg($img-url: 'bg_desktop.png')
+      background-size: cover
+      background-position: center
+  &.sec--about
+    +pos($p: relative)
+    &::before
+      +respond-to('desktop')
+        display: block
+        content: ''
+        +pos($p: absolute, $r: 0, $b: 302px)
+        +imgBg($w: 197px, $h: 280px, $img-url: 'bg_about_dots.jpg')
+  &.sec--service
+    background-color: #F8F8F8
+    &::before
+      +pos($p: absolute)
+      +imgBg($w: 170px, $h: 170px, $img-url: 'img_service_arrow.png')
+      background-size: contain
+      content: ''
+      +respond-to('desktop')
+        +size($w: 295px, $h: 295px)
+  &.sec--support
+    +pos($p: relative)
+    background: linear-gradient( #F8F8F8 0%,  #F8F8F8 95%,  #F2F2F2 95%)
+    &::before
+      +pos($p: absolute, $l: 0)
+      +imgBg($w: 100%, $h: 230px, $img-url: 'bg_support.png')
+      content: ''
+      background-size: cover
+      padding-bottom: 50%
+      z-index: 1
+      +respond-to('desktop')
+        +size($h: 700px)
+        padding-bottom: 0
+    &::after
+      +pos($p: absolute, $b: 10px)
+      +imgBg($w: 200px, $h: 45px, $img-url: 'img_support_bottom.png')
+      content: ''
+      background-size: cover
+      margin-left: 10%
+      +respond-to('desktop')
+        +size($w: 522px, $h: 110px)
+  &.sec--contact
+    background-color: #F2F2F2
+    padding: 22px 0
+    +respond-to('desktop')
+      padding: 22px 10%
+
+.content
+  +size($w: 100%, $h: 100%)
+  &.content--banner
+    +size($h: 50%)
+    +respond-to('tablet')
+      +pos($p: relative)
+      padding: 0 20%
+    +respond-to('desktop')
+      +size($h: 70%)
+      padding: 0 25%
+      min-height: 680px
+  &.content--about
+    +pos($p: relative)
+    padding: 36px 15px 70px
+    max-width: 1800px
+    margin: 0 auto
+    +respond-to('desktop')
+      padding: 76px 15px 70px
+    &::before
+      +pos($p: absolute, $b: 34px)
+      content: ''
+      +imgBg($w: 92px, $h: 92px, $img-url: 'img_about_dots.jpg')
+      transform: translateX(-50%)
+      background-size: contain
+  &.content--service
+    +pos($p: relative)
+    padding: 0 36px
+    max-width: 1800px
+    margin: 0 auto
+    +respond-to('tablet')
+      min-height: 100vh
+    &::before
+      +respond-to('desktop')
+        +pos($p: absolute, $r: 0, $b: 0)
+        +imgBg($w: 252px, $h: 510px, $img-url: 'img_circles.png')
+        content: ''
+        transform: translate(25%, 50%)
+  &.content--support
+    +pos($p: relative)
+    z-index: 1
+    padding: 40px 15px 94px
+    +respond-to('desktop')
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 10% 0 12%
+      max-width: 1800px
+      margin: 0 auto
+    &::before
+      +respond-to('desktop')
+        +pos($p: absolute, $r: 0, $t: 0)
+        +imgBg($w: 252px, $h: 510px, $img-url: 'img_circles.png')
+        content: ''
+        transform: translate(25%, -51%)
+  &.content--contact
+    +respond-to('desktop')
+      display: flex
+      max-width: 1800px
+      margin: 0 auto
+      justify-content: center
+      padding-top: 7%
+
+// ===== Component ===== //
+// Banner Section
+.header
+  +size($w: 100%, $h: 60px)
+  background: linear-gradient(#00486F, #007295)
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 20px
+  +respond-to('tablet')
+    padding: 0 10%
+  +respond-to('desktop')
+    background: rgba(0, 0, 0, 0)
+    margin: 124px 6% 0
+.header-flex
+  flex: 0 0 50%
+  &:first-child
+    margin-right: auto
+    +fs($fz: 12px, $fw: bold)
+    +respond-to('desktop')
+      margin-left: -170px
+  &:last-child
+    margin-left: auto
+  .logo
+    justify-content: flex-end
+    +respond-to('desktop')
+      flex-flow: column nowrap
+      align-items: flex-end
+      padding-right: 100px
+    &.is-play
+      .logo-icon,
+      .logo-info
+        +respond-to('desktop')
+          transform: translateY(0)
+  .logo-icon
+    +respond-to('desktop')
+      +size($w: 226px, $h: 78px)
+      transform: translateY(150%)
+      transition: transform .6s cubic-bezier(0.25, 1, 0.5, 1)
+      transition-delay: .5s
+  .logo-info
+    +respond-to('desktop')
+      transform: translateY(150%)
+      transition: transform .6s cubic-bezier(0.25, 1, 0.5, 1)
+      transition-delay: .7s
+
+.mouse
+  margin-bottom: 10px
+  width: 35px
+  height: 55px
+  border: 2px solid white
+  border-radius: 20px
+  transform: none
+  +pos($p: absolute, $l: 0, $r: 0, $b: 80px)
+  margin: auto
+  display: none
+  +respond-to('desktop')
+    display: block
+.wheel
+  animation: mouse-wheel 1.2s ease infinite
+  position: relative
+  display: block
+  margin: 5px auto
+  width: 3px
+  height: 10px
+  background: #fff
+
+// Menu
+.menu
+  +pos($p: fixed,$t:0,$l:0,$r:0)
+  +size($w: 100%, $h: 100vh)
+  transform: translateX(-100%)
+  z-index: 11
+  display: inline-flex
+  justify-content: space-between
+  background: rgba(0, 126, 163, 1)
+  transition: transform .6s ease
+  +respond-to('desktop')
+    +size($w: 430px)
+  &.is-active
+    +pos($p: fixed,$t:0,$l:0,$r:0)
+    +size($w: 100%,$h: 100vh)
+    transform: translateX(0%)
+    +respond-to('desktop')
+      +size($w: 430px)
+    &::before
+      +pos($p: fixed, $t: 0, $l: 0, $r: 0, $b: 0)
+      +size($w: 100%, $h: 100%)
+      z-index: -1
+      content: ''
+.btn-close
+  +pos($p: absolute, $r: 20px, $t: 20px)
+  +respond-to('desktop')
+    +pos($r: 40px, $t: 120px)
+.menu-list
+  +size($w: 100%)
+  padding-top: 100px
+  display: flex
+  flex-flow: column nowrap
+  +respond-to('desktop')
+    padding-top: 200px
+.menu-item
+  +fs($fz: 18px, $c: #B7EEFF)
+  padding: 30px 0
+  text-align: center
+  cursor: pointer
+  +pos($p: relative)
+  &:hover
+    &::before
+      +pos($p: absolute, $l: 0, $r: 0, $t: 0, $b: 0)
+      +imgBg($w: 100%, $h: 200%, $img-url: 'bg_menu_active.png')
+      margin: auto
+      display: block
+      content: ''
+      background-size: contain
+      background-position: center
+.btn-menu
+  +pos($p: relative)
+  +size($w: 34px, $h: 27px)
+  display: flex
+  flex-flow: column nowrap
+  justify-content: space-between
+  align-items: flex-end
+  margin-bottom: 6px
+  z-index: 10
+  background-size: contain
+  +imgBg($img-url: 'img_btnMenu_mobile.svg')
+  +respond-to('desktop')
+    +imgBg($img-url: 'img_btnMenu.svg')
+    background-size: contain
+    margin-left: 12px
+.menu-text
+  display: none
+  +respond-to('desktop')
+    display: block
+    +fs($fz: 18px, $fw: normal)
+    font-size: 18px
+    font-weight: normal
+
+// Logo
+.logo
+  display: flex
+  overflow: hidden
+.logo-icon
+  +imgBg($w: 64px, $h: 26px, $img-url: 'img_logo.svg')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+.logo-info
+  min-width: 110px
+  white-space: nowrap
+.logo-company
+  +fs($fz: 12px, $c: #97C9C1)
+  +respond-to('desktop')
+    +fs($fz: 20px, $c: #0A6D89, $fw: bold)
+    text-align: center
+.logo-companyEN
+  +fs($c: #ffffff)
+  transform: scale(.47)
+  transform-origin: left center
+  +respond-to('desktop')
+    +fs($c: #767676)
+    transform: scale(0.75)
+    transform-origin: center
+
+// Banner
+.clipPapper
+  +pos($p: relative)
+  +imgBg($w: 220px, $h: 200px, $img-url: 'img_clip.png')
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  +respond-to('tablet')
+    +size($w: 270px, $h: 270px)
+  +respond-to('desktop')
+    +size($w: 425px, $h: 425px)
+  &::before
+    +pos($p: absolute)
+    content: ''
+    +respond-to('desktop')
+      +pos($l: -60%, $t: 12%)
+      +imgBg($w: 1180px, $h: 446px, $img-url: 'img_smoke.png')
+      background-size: contain
+      background-repeat: no-repeat
+.clipPapper-content
+  +pos($p: absolute, $t: 64px, $l: 48px)
+  +fs($fw: bold, $lh: 22px, $fz: 14px)
+  transform: rotate(4deg)
+  letter-spacing: 0.5px
+  text-align: center
+  +respond-to('tablet')
+    +pos($t: 82px, $l: 68px)
+    +fs($lh: 24px, $fz: 18px)
+  +respond-to('desktop')
+    +pos($t: 130px, $l: 80px)
+    +fs($lh: 36px, $fz: 26px)
+    letter-spacing: 3px
+.clipPapper-bold
+  +fs($fz: 22px, $c: #0B5379)
+  +respond-to('desktop')
+    +fs($fz: 36px)
+.cloud-1
+  +pos($p: absolute, $l: 10px, $t: 0)
+  +imgBg($w: 75px, $h: 38px, $img-url: 'img_cloud_1.png')
+  background-size: contain
+  background-repeat: no-repeat
+  +respond-to('desktop')
+    +pos($l: -30px, $t: 55px)
+    +size($w: 108px, $h: 54px)
+.cloud-2
+  +pos($p: absolute)
+  display: none
+  +respond-to('desktop')
+    +pos($r: -30px, $t: 30%)
+    +imgBg($w: 150px, $h: 76px, $img-url: 'img_cloud_1.png')
+    background-size: contain
+    background-repeat: no-repeat
+    display: block
+    animation: cloud-float 6s ease-in-out infinite alternate-reverse
+    animation-delay: .5s
+.cloud-3
+  +pos($p: absolute)
+  display: none
+  +respond-to('desktop')
+    +pos($r: 12%, $t: 5%)
+    +imgBg($w: 150px, $h: 76px, $img-url: 'img_cloud_1.png')
+    background-size: contain
+    background-repeat: no-repeat
+    display: block
+    animation: cloud-float 6s ease-in-out infinite alternate-reverse
+    animation-delay: .5s
+.btn-banner
+  display: block
+  margin: auto
+  transition: background-color .3s ease, box-shadow .3s ease
+  &:hover
+    +respond-to('desktop')
+      background-color: #0063EB
+      box-shadow: 0 3px 6px #7D7E7E
+  &.is-mobile
+    +respond-to('tablet')
+      +pos($p: absolute, $l: 0, $r: 0, $b: 150px)
+      +size($w: 160px)
+    +respond-to('desktop')
+      display: none
+  &.is-desktop
+    display: none
+    +respond-to('desktop')
+      +pos($p: absolute, $l: 0, $r: 0, $b: -60px)
+      +size($w: 215px, $h: 60px)
+      border-radius: 30px
+      +fs($fz: 22px)
+      display: block
+
+.arrow
+  +size($w: 32px, $h: 8px)
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  vertical-align: middle
+  margin-left: 13px
+  &.arrow--service
+    +pos($p: absolute, $t: 20%, $l: -15%)
+    +respond-to('tablet')
+      +pos($l: -7%)
+      opacity: 0
+    .arraow-icon
+      +size($w: 3px, $h: 3px)
+      background-color: #288B83
+      margin-right: 10px
+      &:nth-child(4)
+        +size($w: 0, $h: 0)
+        border-radius: 1px
+        border-top: 7px solid transparent
+        border-bottom: 7px solid transparent
+        border-left: 14px solid #288B83
+        background-color: transparent
+
+.arraow-icon
+  +size($w: 2px, $h: 2px)
+  background-color: #ffffff
+  border-radius: 50%
+  animation: mouse-scroll 1.25s ease infinite
+  margin-right: 4px
+  flex: 0 0 auto
+  +respond-to('desktop')
+    +size($w: 3px, $h: 3px)
+    margin-right: 8px
+  &:first-child
+    -webkit-animation-delay: .1s
+    -moz-animation-delay: .1s
+  &:nth-child(2)
+    -webkit-animation-delay: .2s
+    -moz-animation-delay: .2s
+  &:nth-child(3)
+    -webkit-animation-delay: .3s
+    -moz-animation-delay: .3s
+  &:nth-child(4)
+    +size($w: 0, $h: 0)
+    border-radius: 1px
+    border-top: 4px solid transparent
+    border-bottom: 4px solid transparent
+    border-left: 6px solid #ffffff
+    -webkit-animation-delay: .4s
+    -moz-animation-delay: .4s
+    background-color: transparent
+    +respond-to('desktop')
+      +size($w: 5px, $h: 5px)
+      border-top: 5px solid transparent
+      border-bottom: 5px solid transparent
+      border-left: 11px solid #ffffff
+
+.triangle
+  +pos($p: absolute, $l: 0, $r: 0)
+  +imgBg($w: 100px, $h: 100px, $img-url: 'img_banner_arrow.png')
+  display: block
+  margin: auto
+  background-size: cover
+  background-repeat: no-repeat
+  transform: translateY(-65%)
+  +respond-to('desktop')
+    +size($w: 160px, $h: 160px)
+
+// About Section
+.about-title
+  +imgBg($w: 205px, $h: 215px, $img-url: 'img_about_title.png')
+  background-size: cover
+  background-repeat: no-repeat
+  +respond-to('tablet')
+    +size($w: auto, $h: auto)
+    padding-bottom: 40%
+    background-size: contain
+  +respond-to('desktop')
+    +size($w: 450px, $h: 480px)
+    margin: 2% 0 0 5%
+    padding-bottom: 0
+
+.about-img
+  +pos($p: relative)
+  &::before
+    +size($w: 100%, $h: 100%)
+    +pos($p: absolute)
+    content: ''
+    border-radius: 50%
+
+.about
+  &.about--mobile
+    +pos($p: relative)
+    display: flex
+    flex-flow: row wrap
+    max-width: 330px
+    margin: -2% auto 0
+    padding: 0 0 0 5%
+    +respond-to('tablet')
+      max-width: 450px
+      margin: -12% auto 0
+    +respond-to('desktop')
+      display: none
+    .about-item
+      +size($w: 100%, $h: 127px)
+      display: flex
+      &.item--1
+        justify-content: flex-end
+        .about-img
+          +imgBg($w: 180px, $h: 180px, $img-url: 'img_about_1.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 90%, $h: 90%)
+            +pos($b: 0, $l: 0, $r: 0)
+            margin: auto
+            background-color: rgba(227, 227, 108, 0.6)
+      &.item--2
+        .about-img
+          +imgBg($w: 140px, $h: 140px, $img-url: 'img_about_2.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 93%, $h: 93%)
+            +pos($t: -2px, $l: -10px)
+            background-color: rgba(89, 67, 165, 0.6)
+      &.item--3
+        justify-content: flex-end
+        .about-img
+          +imgBg($w: 170px, $h: 170px, $img-url: 'img_about_3.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 90%, $h: 90%)
+            +pos($b: 0, $l: 0)
+            background-color: rgba(103, 178, 255, 0.6)
+      &.item--4
+        .about-img
+          +imgBg($w: 155px, $h: 155px, $img-url: 'img_about_4.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 83%, $h: 83%)
+            +pos($b: 0, $l: 5px)
+            background-color: rgba(255, 179, 131, 0.6)
+      &.item--5
+        justify-content: flex-end
+        .about-img
+          +imgBg($w: 140px, $h: 140px, $img-url: 'img_about_5.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 87%, $h: 87%)
+            +pos($l: 0)
+            background-color: rgba(127, 190, 122, 0.6)
+
+.about
+  &.about--desktop
+    display: none
+    max-width: 1080px
+    flex-flow: row wrap
+    margin: -20% 0 0 28%
+    +respond-to('desktop')
+      display: flex
+    .about-item
+      display: flex
+      &.item--1
+        flex: 2 0 60%
+        justify-content: flex-end
+        order: 1
+        margin-bottom: 50px
+        .about-img
+          +imgBg($w: 320px, $h: 320px, $img-url: 'img_about_1.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 90%, $h: 90%)
+            +pos($b: 0, $l: 0, $r: 0)
+            margin: auto
+            background-color: rgba(227, 227, 108, 0.6)
+      &.item--2
+        flex: 1 0 35%
+        justify-content: center
+        order: 2
+        margin-top: 20px
+        .about-img
+          +imgBg($w: 260px, $h: 260px, $img-url: 'img_about_2.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 93%, $h: 93%)
+            +pos($t: -2px, $l: -10px)
+            background-color: rgba(89, 67, 165, 0.6)
+      &.item--3
+        flex: 0 0 auto
+        justify-content: flex-start
+        order: 3
+        margin-top: -150px
+        margin-left: 0
+        .about-img
+          +imgBg($w: 300px, $h: 300px, $img-url: 'img_about_3.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 90%, $h: 90%)
+            +pos($b: 0, $l: 0)
+            background-color: rgba(103, 178, 255, 0.6)
+      &.item--4
+        flex: 1 0 auto
+        order: 5
+        margin-top: -80px
+        justify-content: center
+        .about-img
+          +imgBg($w: 277px, $h: 277px, $img-url: 'img_about_4.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 83%, $h: 83%)
+            +pos($b: 0, $l: 5px)
+            background-color: rgba(255, 179, 131, 0.6)
+      &.item--5
+        flex: 1 0 auto
+        justify-content: center
+        order: 4
+        .about-img
+          +imgBg($w: 240px, $h: 240px, $img-url: 'img_about_5.png')
+          background-size: contain
+          background-position: center
+          &::before
+            +size($w: 87%, $h: 87%)
+            +pos($l: 0)
+            background-color: rgba(127, 190, 122, 0.6)
+
+
+.about-text
+  +fs($fz: 14px)
+  white-space: nowrap
+  text-align: center
+  margin-top: 5px
+  +respond-to('desktop')
+    +fs($fz: 20px)
+    margin-top: 12px
+
+// Service Section
+.service
+  max-width: 320px
+  padding: 40px 30px 80px
+  margin: 0 auto
+  +respond-to('tablet')
+    display: flex
+    flex-flow: row wrap
+    max-width: 720px
+  +respond-to('desktop')
+    max-width: 1400px
+    padding: 60px 0 80px
+.service-header
+  text-align: center
+  +respond-to('desktop')
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    margin-left: 13%
+    padding-top: 160px
+.service-title
+  text-align: right
+  padding-top: 112px
+  margin-bottom: 30px
+  +respond-to('tablet')
+    text-align: center
+  +respond-to('desktop')
+    padding-top: 0
+.service-textItem
+  +fs($fz: 36px, $c: #D1D1D1, $fw: bold)
+  margin-bottom: 6px
+  white-space: nowrap
+  +respond-to('desktop')
+    +fs($fz: 70px)
+.service-text
+  +fs($fz: 20px)
+  padding-right: 6px
+  +respond-to('desktop')
+    +fs($fz: 30px)
+    text-align: right
+    padding-right: 40px
+.service-desc
+  +pos($p: relative)
+  +fs($fz: 14px, $lh: 20px)
+  text-align: center
+  display: inline-block
+  &.desc--mobile
+    &::before
+      +pos($p: absolute, $l: -60px, $t: 0)
+      +imgBg($w: 65px, $h: 60px, $img-url: 'ico_service_plane.png')
+      content: ''
+      background-size: contain
+    +respond-to('desktop')
+      display: none
+  &.desc--desktop
+    +fs($fz: 18px, $lh: 26px)
+    display: none
+    margin-left: auto
+    padding-right: 14%
+    +respond-to('desktop')
+      display: block
+      text-align: right
+    &::before
+      +respond-to('desktop')
+        +pos($p: absolute, $l: -60px, $t: 0)
+        +imgBg($w: 65px, $h: 60px, $img-url: 'ico_service_plane.png')
+        content: ''
+        background-size: contain
+.service-item
+  display: flex
+  justify-content: flex-end
+  margin-bottom: 50px
+  cursor: pointer
+  .arrow
+    opacity: 1
+    +respond-to('tablet')
+      opacity: 0
+  +respond-to('tablet')
+    justify-content: center
+    flex: 1 0 auto
+    width: 50%
+    &:hover
+      .arrow
+        opacity: 1
+  +respond-to('desktop')
+    flex: 1 0 calc(100% / 3)
+.service-order
+  +pos($p: relative)
+  +size($w: 170px, $h: 170px)
+  +respond-to('desktop')
+    +size($w: 210px, $h: 210px)
+    cursor: pointer
+  &.order--1
+    +imgBg($img-url: 'img_service_1.svg')
+    background-size: contain
+  &.order--2
+    +imgBg($img-url: 'img_service_2.svg')
+    background-size: contain
+  &.order--3
+    +imgBg($img-url: 'img_service_3.svg')
+    background-size: contain
+  &.order--4
+    +imgBg($img-url: 'img_service_4.svg')
+    background-size: contain
+  &.order--5
+    +imgBg($img-url: 'img_service_5.svg')
+    background-size: contain
+  &.order--6
+    +imgBg($img-url: 'img_service_6.svg')
+    background-size: contain
+.service-order-text
+  +fs($fw: bold)
+  +pos($p: absolute, $l: -75%, $t: 50%)
+  +size($w: 100%)
+  text-align: right
+  +respond-to('desktop')
+    +fs($fz: 22px)
+
+// Support Section
+.support
+  +pos($p: relative)
+  +imgBg($w: 90%, $h: 240px, $img-url: 'img_support_techBg.png')
+  background-size: contain
+  background-position: center
+  margin: 0 auto 30px
+  padding-bottom: 60%
+  +respond-to('desktop')
+    +size($w: 50%, $h: 725px)
+    padding-bottom: 0
+    margin: 0
+.support-box
+  +pos($p: absolute, $t: -20px, $b: 0, $l: 0, $r: 0)
+  +size($w: 100%, $h: 70%)
+  margin: auto
+  display: flex
+  +respond-to('desktop')
+    +pos($t: -40px, $b: 0, $l: 50px, $r: 0)
+    +size($w: 80%, $h: 50%)
+.support-item
+  +fs($fz: 14px, $fw: bold)
+  +pos($p: absolute)
+  transform: scale(0)
+  &::before
+    content: ''
+    display: inline-block
+    vertical-align: baseline
+    +imgBg($w: 12px, $h: 12px, $img-url: 'ico_support.svg')
+    margin-right: 6px
+    background-size: contain
+    background-repeat: no-repeat
+    +respond-to('desktop')
+      +size($w: 18px, $h: 18px)
+      margin-right: 10px
+  +respond-to('desktop')
+    +fs($fz: 22px)
+  &.item--white
+    +fs($c: #ffffff)
+  &.item--green
+    +fs($c: #BFFC77)
+
+.tech
+  +respond-to('desktop')
+    +pos($p: relative)
+    +size($w: 50%)
+    margin: -7% 0 0 -7%
+.tech-title
+  text-align: center
+  +respond-to('desktop')
+    +fs($fz: 30px)
+.tech-text
+  +fs($fw: bold)
+  margin-bottom: 6px
+  +respond-to('desktop')
+    +fs($c: #ffffff)
+  &.text--green
+    +fs($fz: 20px, $c: #8DD6A9)
+    margin-bottom: 10px
+    +respond-to('desktop')
+      +fs($fz: 50px)
+.plane-green
+  +imgBg($w: 23px, $h: 19px, $img-url: 'ico_plane_green.png')
+  display: inline-block
+  transform: rotate(180deg)
+  background-size: contain
+  +respond-to('desktop')
+    +size($w: 77px, $h: 73px)
+.carousel
+  +size($w: 87%, $h: auto)
+  min-height: 170px
+  background-color: #fff
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16)
+  margin: 0 auto
+  padding: 20px 0
+  +respond-to('tablet')
+    +size($w: 77%)
+  +respond-to('desktop')
+    +size($w: 100%, $h: 100%)
+.carousel-header
+  +pos($p: relative)
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px 20%
+  +respond-to('desktop')
+    padding: 40px 22% 20px
+  &::before
+    +pos($p: absolute, $b: 0, $l: 0, $r: 0)
+    +size($w: 38px, $h: 3px)
+    border-radius: 3px
+    content: ''
+    background-color: #000000
+    margin: auto
+    +respond-to('desktop')
+      +size($w: 88px)
+.carousel-title
+  +fs($fz: 16px, $fw: bold)
+  flex: 0 0 auto
+  +respond-to('desktop')
+    +fs($fz: 22px)
+.btn-carousel
+  +size($w: 21px, $h: 15px)
+  +respond-to('desktop')
+    +size($w: 52px, $h: 38px)
+  &.carousel--prev
+    +imgBg($img-url: 'img_support_arrow_prev.svg')
+    background-size: cover
+  &.carousel--next
+    +imgBg($img-url: 'img_support_arrow_next.svg')
+    background-size: cover
+.carousel-content
+  +size($h: auto)
+  display: flex
+  justify-content: center
+  align-items: center
+  max-width: 85%
+  margin: 0 auto
+  +respond-to('desktop')
+    +size($h: calc(100% - 80px))
+    min-height: 310px
+.carousel-list
+  display: flex
+  flex-flow: row wrap
+  // justify-content: flex-start
+  justify-content: flex-start
+.carousel-item
+  margin: 10px
+  flex: 0 0 calc(100% / 4)
+  text-align: center
+  min-width: 65px
+  display: flex
+  flex-flow: column
+  justify-content: center
+  align-items: center
+  animation: fadein 0.8s ease
+  +respond-to('tablet')
+    flex: 0 0 20%
+    min-width: 95px
+  +respond-to('desktop')
+    min-width: 120px
+    flex: 0 0 33%
+    margin: 20px 0
+  &.is-backend
+    +respond-to('desktop')
+      min-width: 95px
+      flex: 0 0 16%
+  &.is-database
+    +respond-to('desktop')
+      min-width: 100px
+      flex: 0 0 25%
+
+// Contact Section
+.contact-bg
+  +imgBg($w: 100%, $h: 0, $img-url: 'bg_contact.png')
+  background-size: contain
+  margin: 0 auto 24px
+  background-position: center
+  padding-bottom: 55%
+  +respond-to('desktop')
+    +size($w: auto)
+    margin: 0 60px 0 0
+    flex: 0 0 750px
+    background-position: 0 24%
+.contact-formWrap
+  +respond-to('desktop')
+    flex: 0 0 55%
+.contact-text
+  text-align: center
+  margin-bottom: 12px
+  +respond-to('desktop')
+    +fs($fz: 30px)
+.contact-textEN
+  +fs($fz: 24px, $fw: bold, $c: #292929)
+  margin-bottom: 15px
+  text-align: center
+  +respond-to('desktop')
+    +fs($fz: 46px)
+    margin-bottom: 20px
+    display: flex
+    align-items: center
+    justify-content: center
+  &::before,
+  &::after
+    content: ''
+    +size($w: 80px, $h: 2px)
+    background-color: #000000
+    display: inline-block
+    vertical-align: middle
+    margin: 0 15px
+    +respond-to('desktop')
+      +size($w: 200px)
+
+.contact-desc
+  +fs($fz: 12px, $lh: 20px)
+  text-align: center
+  white-space: normal
+  +respond-to('desktop')
+    margin-bottom: 30px
+  .desc-text
+    +respond-to('desktop')
+      +fs($fz: 18px)
+      display: inline-block
+      vertical-align: top
+.contact-form
+  padding: 20px 15px
+.form-content
+  +size($w: 100%)
+.form-line
+  +size($w: 100%)
+  display: flex
+  +respond-to('lg')
+    flex-direction: column
+  .form-group:last-child
+    margin-left: 15px
+    +respond-to('lg')
+      margin-left: 0
+.form-group
+  +size($w: 100%)
+  text-align: left
+
+.form-label
+  +fs($fz: 14px, $lh:16px, $c: #383838, $fw:bold)
+  display: inline-block
+  margin: 0 0 6px 9px
+  +respond-to('desktop')
+    +fs($fz: 16px, $lh:18px)
+    margin-bottom: 11px
+.form-input,.form-textarea
+  +size($w: 100%)
+  +fs($fz: 16px, $lh:18px, $c: #292929)
+  margin-bottom: 14px
+  padding: 10px
+  border: 1px solid #C7C7C7
+  // &:focus
+  //   border: 1px solid #52A7C8
+.form-input
+  +size($h:38px)
+  background-color: #F2F2F2
+  +respond-to('desktop')
+    +size($h:44px)
+.form-textarea
+  +size($h:130px)
+  background-color: #F2F2F2
+  +respond-to('desktop')
+    +size($h:135px)
+.btn-submit
+  margin: 0 auto
+  +size($w: 128px, $h: 38px)
+  display: block
+  border-radius: 19px
+  transition: background-color .3s ease, box-shadow .3s ease
+  +respond-to('desktop')
+    +size($w: 170px, $h: 50px)
+    +fs($fz: 18px)
+    margin-top: 12px
+    border-radius: 25px
+  &:hover
+    +respond-to('desktop')
+      background-color: #0063EB
+      box-shadow: 0 3px 6px #7D7E7E
+.success-info
+  +size($w: 100%)
+  +fs($fz: 16px,$lh: 16px, $c:#01447E)
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-bottom: 20px
+  padding: 10px 15px
+  background-color: #C6E7F7
+  +respond-to('lg')
+    +fs($fz: 14px)
+  &:before
+    +imgBg($w: 40px, $h:40px, $img-url: 'ico_success.svg')
+    display: inline-block
+    flex-shrink: 0
+    margin-right: 28px
+    background-position: center
+    content: ''
+    +respond-to('lg')
+      margin-right: 15px
+
+// Footer Section
+.footer
+  background-color: #454545
+  overflow: hidden
+.footer-container
+  display: flex
+  flex-flow: column nowrap
+  padding: 15px 25px
+  +respond-to('desktop')
+    +size($h: 230px)
+    flex-flow: row nowrap
+    max-width: 1680px
+    align-items: center
+    margin: 0 auto
+.footer-logo
+  +respond-to('desktop')
+    margin-right: auto
+    padding-left: 5%
+  .logo-icon
+    +respond-to('desktop')
+      +size($w: 138px, $h: 52px)
+  .logo-company
+    +fs($c: #ffffff)
+    +respond-to('desktop')
+      +fs($fz: 25px)
+      margin-bottom: 3px
+  .logo-companyEN
+    +fs($c: #ffffff)
+    +respond-to('desktop')
+      transform: scale(0.96)
+.footer-address
+  display: flex
+  align-items: center
+  +respond-to('desktop')
+    margin-left: auto
+.address-info
+  +fs($fz: 12px, $c: #ffffff)
+  transform-origin: 0 center
+  transform: scale(.6)
+  letter-spacing: 0.3px
+  +respond-to('desktop')
+    transform: scale(1)
+    letter-spacing: normal
+.address-text,
+.address-companyEN
+  white-space: nowrap
+.address-tel
+  padding-left: 20px
+.address-text,
+.address-tel
+  +respond-to('desktop')
+    +fs($fz: 16px)
+    margin-bottom: 6px
+.address-companyEN
+  +respond-to('desktop')
+    +fs($fz: 16px)
+.address-icon
+  flex: 0 0 auto
+  +imgBg($w: 30px, $h: 30px, $img-url: 'img_footer_icon.svg')
+  background-size: contain
+  margin-right: 6px
+  +respond-to('desktop')
+    +size($w: 80px, $h: 80px)
+    margin-right: 20px
+.btn-top
+  +pos($p: fixed, $r: 20px, $b: 20px)
+  +imgBg($w: 50px, $h: 50px, $img-url: 'ico_top.svg')
+  z-index: 3
+  background-size: cover
+  background-repeat: no-repeat
+  +respond-to('desktop')
+    +pos($r: 70px, $b: 50px)
+    +imgBg($w: 80px, $h: 80px, $img-url: 'ico_top.svg')
+    background-size: contain
+    display: block

@@ -1,0 +1,366 @@
+@import 'mixins'
+
+$developIcon:  'ec', 'log', 'edu', 'office', 'live'
+
+.popup-app
+  +size($w: 100%, $h: 100%)
+.app-wrap
+  margin: 0 auto
+  width: 80%
+  +respond-to('desktop')
+    +pos($p: relative)
+    display: flex
+    padding: 1% 0 0 1.5%
+    width: 88%
+.content-title
+  margin-top: 80px
+  +respond-to('desktop')
+    flex-shrink: 0
+    margin-top: 0
+    width: 276px
+.title-img
+  +imgBg($w: 182px, $h: 197px, $img-url: 'service/items-3.png')
+  margin: 0 auto
+  background-position: center
+  background-size: contain
+  +respond-to('desktop')
+    +imgBg($h: 276px, $img-url: 'service/items-3.png')
+    +pos($p: unset)
+    margin-top: -7%
+    width: 100%
+    background-size: contain
+
+// content
+.app-content
+  display: flex
+  align-items: center
+  flex-direction: column-reverse
+  +respond-to('tablet')
+    flex-direction: column-reverse
+  +respond-to('desktop')
+    align-items: start
+    flex-direction: row
+    flex-grow: 1
+    justify-content: center
+
+// frame-img
+.app-box
+  +size($w: 100%)
+  max-width: 758px
+  +respond-to('desktop')
+    flex-grow: 1
+    min-width: 480px
+    width: auto
+.app-frame
+  +imgBg($img-url: 'photoframe.png')
+  +pos($p: relative)
+  overflow: hidden
+  margin-top: 20px
+  padding-bottom: 92%
+  background-size: cover
+  +respond-to('desktop')
+    +imgBg($w: 100%, $img-url: 'photoframe.png')
+    margin-top: 58px
+    background-size: cover
+.img-outside
+  +pos($p: absolute, $t: 8%, $l: 7.6%)
+  +size($w: calc( 100% - 18% ), $h: calc( 100% - 22% ))
+  overflow: hidden
+  +respond-to('desktop')
+    +pos($p: absolute, $t: 8%, $l: 7.8%)
+    +size($w: calc( 100% - 18% ), $h: calc( 100% - 22% ))
+    overflow: hidden
+.app-img
+  +pos($p: absolute, $t: 0, $l: 0)
+  +size($w: 100%, $h: 100%)
+  background-position: center center
+  background-size: cover
+  transition: 1s
+  opacity: 0
+  &.is-slide
+    opacity: 1
+  &.img1
+    +imgBg($img-url: 'service/3-1.jpg')
+    background-size: contain
+  &.img2
+    +imgBg($img-url: 'service/3-2.jpg')
+    background-size: contain
+  +respond-to('desktop')
+    +size($w: 100%, $h: 100%)
+    +pos($p: absolute, $t: 0, $l: 0)
+    padding-bottom: 0
+
+// mask text
+.img-describe
+  overflow-x: hidden
+@each $item in $developIcon
+  .img--#{$item}
+    +fs($c: #fff)
+    +pos($p: absolute, $t: 0, $l: 0)
+    +size($w: 100%, $h: 100%)
+    +imgBg($img-url: 'service/3-#{$item}.jpg')
+    display: flex
+    overflow: scroll
+    flex-direction: column
+    padding: 4% 6%
+    background-size: contain
+    +respond-to('desktop')
+      padding: 10% 11.5%
+    +respond-to('desktop1024')
+      padding: 10% 11.5%
+      overflow: hidden
+.text-title
+  margin-left: 58px
+  font-size: 16px
+  line-height: 40px
+  +respond-to('desktop')
+    margin-left: 0
+    font-size: 24px
+  +respond-to('desktop1024')
+    margin-left: 0
+    font-size: 24px
+@each $item in $developIcon
+  .text--#{$item}
+    +size($w: 80px, $h: 40px)
+    &::before
+      +pos($p: absolute, $l: 24px)
+      +imgBg($w: 70px, $h: 70px, $img-url: 'icon/icon_#{$item}_b.svg')
+      display: inline-block
+      background-size: 57%
+      content: ""
+    +respond-to('desktop')
+      +size($w: 500px, $h: 80px)
+      display: flex
+      align-items: center
+      &::before
+        +pos($p: unset)
+        margin-right: 16px
+        background-size: 100%
+    +respond-to('desktop1024')
+      +size($w: 500px, $h: 80px)
+      display: flex
+      align-items: center
+      &::before
+        +pos($p: unset)
+        margin-right: 16px
+        background-size: 100%
+
+
+.text-caption
+  margin-top: 3%
+  font-size: 14px
+  line-height: 22px
+  +respond-to('desktop1024')
+    margin-top: 8%
+    font-size: 15px
+  +respond-to('desktop')
+    margin-top: 8%
+    font-size: 15px
+
+
+// mask
+.img-mask
+  &.is-mobile
+    display: block
+    width: 100%
+    +respond-to('desktop')
+      display: none
+  &.is-web
+    display: none
+    +respond-to('desktop')
+      +size($w: 230px, $h: 545px)
+      +pos($p: absolute, $t: 0, $l: 0)
+      display: flex
+      padding: 32px
+      background: linear-gradient(#FFFFFF00, #DEFFF4)
+.mask-list
+  +fs($fz: 14px,$c: #000000)
+  margin: 16px 26px
+  +respond-to('desktop')
+    +pos($p:absolute, $b: 16px)
+    +fs($fz: 15px)
+    margin: auto
+  +respond-to('desktop1024')
+    +fs($fz: 16px)
+.list-item
+  +pos($p: relative)
+  margin-bottom: 16px
+  padding-left: 16px
+  +respond-to('desktop')
+    margin-bottom: 14px
+  &::before
+    +size($w: 6px, $h: 6px)
+    +pos($p: absolute, $t: 6px, $l: 0)
+    display: inline-block
+    border-radius: 50%
+    background-color: #006CBC
+    content: ""
+
+// icon
+.app-icon
+  &.is-mobile
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    order: -1
+    margin-top: 20px
+    max-width: 300px
+    +respond-to('desktop')
+      display: none
+    +respond-to('desktop1024')
+      display: none
+  &.is-laptop
+    display: none
+    +respond-to('desktop1024')
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      order: -1
+      margin-top: 20px
+      max-width: 580px
+      margin-bottom: 30px
+    +respond-to('desktop')
+      display: none
+  &.is-web
+    display: none
+    +respond-to('desktop1024')
+      display: none
+    +respond-to('desktop')
+      display: flex
+      margin-bottom: 30px
+      max-width: 580px
+
+
+.icon-item
+  +fs($fz: 14px, $c: #ffffff)
+  +pos($p: relative)
+  +size($w: 83px, $h: 83px)
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 18px 16px 0 0
+  border-radius: 50%
+  background-color: #4EB5BE
+  +respond-to('desktop1024')
+    +size($w: 100px, $h: 100px)
+    +fs($fz: 18px)
+    max-width: 100px
+    &:hover
+      +fs($fz: 18px, $c: #000)
+      background-color: #F2DE40
+      .icon-img
+        padding-top: 0
+        &::before
+          display: none
+  +respond-to('desktop')
+    +size($w: 100px, $h: 100px)
+    +fs($fz: 18px)
+    max-width: 100px
+    &:hover
+      +fs($fz: 18px, $c: #000)
+      background-color: #F2DE40
+      .icon-img
+        padding-top: 0
+        &::before
+          display: none
+  &::before
+    +size($w: 83px, $h: 83px)
+    +pos($p: absolute, $t: -8px, $l: 2px)
+    border: 2px dashed #000
+    border-radius: 50%
+    content: ""
+    +respond-to('desktop')
+      +size($w: 100px, $h: 100px)
+      max-width: 100px
+    +respond-to('desktop1024')
+      +size($w: 100px, $h: 100px)
+      max-width: 100px
+  &.is-hover
+    +fs($fz: 14px, $c: #000)
+    background-color: #F2DE40
+    .icon-img
+      padding-top: 0
+      &::before
+        display: none
+
+
+@each $item in $developIcon
+  .app--#{$item}
+    display: inline-block
+    padding: 20px 0 0 4px
+    &::before
+      +pos($p: absolute, $t: 4px, $l: 21px)
+      +imgBg($w: 50px, $h: 50px, $img-url: 'icon/icon_#{$item}.svg')
+      background-size: 84%
+      content: ""
+    +respond-to('desktop')
+      padding: 26px 0 0 4px
+      &::before
+        +pos($t: 6px, $l: 26px)
+        background-size: 100%
+    +respond-to('desktop1024')
+      padding: 26px 0 0 4px
+      &::before
+        +pos($t: 6px, $l: 26px)
+        background-size: 100%
+
+// describe
+.app-describe
+  +respond-to('desktop')
+    display: flex
+    flex-direction: column
+    margin: -2% 0 0 4%
+.describe-wrap
+  +respond-to('desktop')
+    max-width: 470px
+.describe-title
+  +fs($fz: 20px, $fw: bold, $c: #292929)
+  margin: 8px
+  text-align: center
+  +respond-to('desktop')
+    +fs($fz: 32px)
+    margin: auto
+    text-align: left
+  +respond-to('desktop1024')
+    +fs($fz: 32px)
+.describe-text
+  +fs($fz: 14px, $c: #000000)
+  &.is-mobile
+    order: -2
+    line-height: 22px
+    +respond-to('desktop')
+      display: none
+    +respond-to('desktop1024')
+      +fs($fz: 16px)
+  &.is-web
+    display: none
+    +respond-to('desktop')
+      +fs($fz: 16px)
+      display: block
+      margin-top: 40px
+      line-height: 22px
+.btn-contactUs
+  border-radius: 25px
+  background-color: #0088EB
+  transition: background-color .3s ease, box-shadow .3s ease
+  &:hover
+    +respond-to('desktop')
+      background-color: #0063EB
+      box-shadow: 0 3px 6px #7D7E7E
+  &.is-mobile
+    +fs($fz: 16px,$c: #fff)
+    +size($w: 136px, $h:40px)
+    display: block
+    margin-top: 30px
+    +respond-to('desktop')
+      display: none
+    +respond-to('desktop1024')
+      +fs($fz: 18px)
+      +size($w: 170px, $h: 50px)
+  &.is-web
+    display: none
+    +respond-to('desktop')
+      +fs($fz: 18px,$c: #fff)
+      +size($w: 170px, $h: 50px)
+      display: block
+      margin-top: 40px

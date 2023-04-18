@@ -1,0 +1,161 @@
+// ===== Animation ===== //
+@keyframes mouse-scroll
+  0%
+    opacity: 0
+  50%
+    opacity: .5
+  100%
+    opacity: 1
+
+@keyframes mouse-wheel
+  0%
+    top: 1px
+    opacity: 1
+    -webkit-transform: translateY(0)
+    -ms-transform: translateY(0)
+    transform: translateY(0)
+  50%
+    top: 2px
+  100%
+    top: 3px
+    opacity: 0
+    -webkit-transform: translateY(6px)
+    -ms-transform: translateY(6px)
+    transform: translateY(6px)
+
+@keyframes fadein
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes clipPapper-text
+  0%
+    opacity: 0
+    transform: translateY(40%)
+  100%
+    opacity: 1
+    transform: translateY(0%)
+
+@keyframes cloud-float
+  0%
+    transform: translateX(0%)
+  50%
+    transform: translateX(10%)
+  100%
+    transform: translateX(0%)
+
+
+// Planes
+.plane-purpleAni,
+.plane-greenAni,
+.plane-yellowAni
+  +pos($p: absolute)
+  z-index: 1
+  opacity: 0
+  background-size: contain
+  background-repeat: no-repeat
+  transition: opacity 2s linear
+  transform: scale(.6)
+  +respond-to('tablet')
+    transform: scale(1)
+
+.plane-purpleAni
+  +imgBg($w: 75px, $h: 64px, $img-url: 'ico_plane_purple.svg')
+.plane-greenAni
+  +imgBg($w: 80px, $h: 76px, $img-url: 'ico_plane_green.svg')
+.plane-yellowAni
+  +imgBg($w: 54px, $h: 50px, $img-url: 'ico_plane_yellow.svg')
+
+// Banner
+.clipPapper-content
+  .clipPapper-text
+    opacity: 0
+  &.is-play
+    .clipPapper-text
+      animation: clipPapper-text 1s cubic-bezier(0.25, 1, 0.5, 1) forwards
+      @for $i from 1 through 3
+        &:nth-child(#{$i})
+          animation-delay: #{$i * 0.4}s
+.cloud-1
+  animation: cloud-float 5s ease-in-out infinite alternate
+.btn-banner.is-desktop
+  opacity: 0
+  animation: clipPapper-text 1s ease forwards
+  animation-delay: 1.5s
+
+// About
+.about
+  .about-item
+    opacity: 0
+  &.is-play
+    @for $i from 1 through 5
+      .about-item:nth-child(#{$i})
+        animation: fadein .8s cubic-bezier(0.25, 1, 0.5, 1) forwards
+        animation-delay: #{$i * 0.2}s
+
+@for $i from 1 through 7
+  @keyframes floating#{$i}
+    from
+      transform: translate(0, 0)
+    #{25+5 - random(10)}%
+      transform: translate(random(15) - random(30) + px, random(15) - random(30) + px)
+    #{50+5 - random(10)}%
+      transform: translate(random(15) - random(30) + px, random(15) - random(30) + px)
+    #{75+5 - random(10)}%
+      transform: translate(random(15) - random(30) + px, random(15) - random(30) + px)
+    to
+      transform: translate(0, 0)
+  .about-item:nth-child(#{$i})
+    .about-img
+      &::before
+        animation: floating#{$i} 7.5s ease-in-out infinite
+        animation-delay: #{random(3) - $i}s
+
+// service
+.service
+  .service-item
+    opacity: 0
+  &.is-play
+    @for $i from 1 through 6
+      .service-item:nth-child(#{$i})
+        animation: fadein 1s cubic-bezier(0.25, 1, 0.5, 1) forwards
+        animation-delay: #{$i * 0.2}s
+
+$supporList: (1, (39%, 17%), (30%, 20%)), (2, (64%, 12%), (55%, 15%)), (3,  (49%, 35%), (40%, 38%)), (4, (29%, 49%), (20%, 52%)), (5, (67%, 49%), (58%, 52%)), (6, (48%, 69%), (39%, 72%)), (7, (63%, 87%), (54%, 90%))
+
+@each $pos in $supporList
+  $idx: nth($pos, 1)
+  $start: nth($pos, 2)
+  $end: nth($pos, 3)
+  $startLeft: nth($start, 1)
+  $startTop: nth($start, 2)
+  $endLeft: nth($end, 1)
+  $endTop: nth($end, 2)
+  @keyframes zoomIn#{$idx}
+    0%
+      opacity: 0
+      transform: scale(0)
+      left: $startLeft
+      top: $startTop
+    100%
+      opacity: 1
+      transform: scale(1)
+      left: $endLeft
+      top: $endTop
+
+$supportItems: (1, 30%, 20%), (2, 55%, 15%), (3, 40%, 38%), (4, 20%, 52%), (5, 58%, 52%), (6, 39%, 72%), (7, 54%, 90%)
+
+// support
+.support
+  &.is-play
+    @each $item in $supportItems
+      $i: nth($item, 1)
+      $left: nth($item, 2)
+      $top: nth($item, 3)
+      .support-item
+        &:nth-child(#{$i})
+          +pos($l: $left, $t: $top)
+          animation: zoomIn#{$i} 1s ease-in-out forwards, floating#{$i} 15s ease-in-out infinite
+          animation-delay: #{$i * 0.3}s
+

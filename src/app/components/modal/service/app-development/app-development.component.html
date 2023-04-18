@@ -1,0 +1,69 @@
+<div class="popup-app">
+  <div class="app-wrap">
+    <div class="content-title">
+      <div class="title-img"></div>
+    </div>
+    <div class="container app-content">
+      <div class="app-box">
+        <div class="app-frame">
+          <div class="img-outside">
+            <div class="app-img img1" [class.is-slide]="!isSlide"></div>
+            <div class="app-img img2" [class.is-slide]="isSlide"></div>
+            <div class="img-describe" [ngClass]="'img--' + currentDevelopIcon[0]?.id">
+              <div class="text-title" [ngClass]="'text--' + currentDevelopIcon[0]?.id">{{ currentDevelopIcon[0]?.title }}</div>
+              <div class="text-caption" [innerHtml]="currentDevelopIcon[0]?.caption"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-describe">
+        <div class="app-icon is-web">
+          <div class="icon-item"
+            *ngFor="let item of developList; let i = index"
+            (mouseover)="showDescribe(item.id)"
+            (mouseout)="cleanIcon()">
+              <span class="icon-img" [ngClass]="'app--' + item.id">{{ item.title }}</span>
+          </div>
+        </div>
+
+        <div class="describe-wrap">
+          <div class="describe-title">APP開發</div>
+          <div class="describe-text is-web">
+            <p>您有好的想法好的idea，但卻苦無技術團隊而無法實現那個棒透了的創意嗎？即使有了點子、有了技術，但是卻因為開發成本而望之卻步嗎？</p>
+            <p>感謝老天爺讓你找到了艾爾加，我們就是你的最佳解！這裏擁有全方位的開發團隊，不論規劃、開發、視覺、音樂、行銷、網管、客服，不管是哪種平台，我們都可以提供優質的技術解決方案，幫助您把夢變成現實，並加以發揚光大。</p>
+            <p>您還在等什麼？快來跟我們聯絡吧！</p>
+          </div>
+          <button class="btn-contactUs is-web" (click)="contact()">聯絡我們</button>
+        </div>
+
+      </div>
+
+      <div class="app-icon is-laptop">
+        <div class="icon-item"
+          *ngFor="let item of developList; let i = index"
+          (mouseover)="showDescribe(item.id)"
+          (mouseout)="cleanIcon()">
+            <span class="icon-img" [ngClass]="'app--' + item.id">{{ item.title }}</span>
+        </div>
+      </div>
+
+      <div class="app-icon is-mobile" (appClickOutside)="cleanIcon()">
+        <div class="icon-item"
+          *ngFor="let item of developList; let i = index"
+          (click)="showDescribe(item.id)"
+          [class.is-hover]="currentDevelopIcon[0]?.id === item.id">
+            <span class="icon-img" [ngClass]="'app--' + item.id">{{ item.title }}</span>
+        </div>
+      </div>
+
+      <div class="describe-text is-mobile">
+        <p>您有好的想法好的idea，但卻苦無技術團隊而無法實現那個棒透了的創意嗎？即使有了點子、有了技術，但是卻因為開發成本而望之卻步嗎？</p>
+        <p>感謝老天爺讓你找到了艾爾加，我們就是你的最佳解！這裏擁有全方位的開發團隊，不論規劃、開發、視覺、音樂、行銷、網管、客服，不管是哪種平台，我們都可以提供優質的技術解決方案，幫助您把夢變成現實，並加以發揚光大。</p>
+        <p>您還在等什麼？快來跟我們聯絡吧！</p>
+      </div>
+    </div>
+    <button class="btn-contactUs is-mobile" (click)="contact()">聯絡我們</button>
+  </div>
+
+</div>

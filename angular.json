@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "sass"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -24,12 +27,16 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "sass",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/style/main.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/style"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

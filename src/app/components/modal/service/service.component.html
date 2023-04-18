@@ -1,0 +1,54 @@
+<div class="popup">
+  <div class="popup-inner" [class.responsiveWeb-inner]=" props.index === 1 ">
+    <div class="popup-header">
+      <div class="popup-title"></div>
+      <button class="btn-close" (click)="close()"></button>
+    </div>
+
+    <div class="popup-content">
+      <ng-container [ngSwitch]="props.index">
+        <app-customized *ngSwitchCase="0" (contactUs)="submit()"></app-customized>
+        <app-responsive  *ngSwitchCase="1" (contactUs)="submit()"></app-responsive>
+        <app-app-development  *ngSwitchCase="2" (contactUs)="submit()"></app-app-development>
+        <app-hosting  *ngSwitchCase="3" (contactUs)="submit()"></app-hosting>
+        <app-seo  *ngSwitchCase="4" (contactUs)="submit()"></app-seo>
+        <app-big-data  *ngSwitchCase="5" (contactUs)="submit()"></app-big-data>
+        <ng-container *ngSwitchDefault></ng-container>
+      </ng-container>
+    </div>
+
+    <div class="popup-footer">
+      <div class="footer-content">
+        <button class="btn btn-nav nav--prev" (click)="prev()"></button>
+        <button class="btn btn-nav nav--next" (click)="next()"></button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <div class="logo">
+            <div class="logo-icon"></div>
+            <div class="logo-info">
+              <div class="logo-company">艾爾加科技有限公司</div>
+              <div class="logo-companyEN">ELGA TECHNOLOGY CO., LTD.</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-address">
+          <div class="address-icon"></div>
+          <div class="address-info">
+            <div class="address-company">
+              <div class="address-text">臺中市西屯區市政北二路238號34樓之1
+                <span class="address-tel">04-22513659</span>
+              </div>
+            </div>
+            <div class="address-companyEN">
+              34F.-1, NO. 238, SHIZHENG N. 2ND RD., XITUN DIST., TAICHUNG CITY 407607, TAIWAN
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+</div>
