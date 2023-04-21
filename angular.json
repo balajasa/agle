@@ -20,6 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/agle/",
             "outputPath": "dist/agle",
             "index": "src/index.html",
             "main": "src/main.ts",
